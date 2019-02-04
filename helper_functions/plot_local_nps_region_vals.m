@@ -19,7 +19,7 @@ function plot_local_nps_region_vals(nps_region_extract)
 % :Usage:
 % ::
 %
-%      nps_region_plot = plot_local_nps_region_vals(NPS_region_vals)
+%      plot_local_nps_region_vals(NPS_region_values_object)
 %
 %
 % :Inputs:
@@ -30,26 +30,42 @@ function plot_local_nps_region_vals(nps_region_extract)
 %  :Outputs:
 %   1.) Two plots: One of the data from the NPS subregion of interest by
 %   condition and one by contrast.
+%
+%  :Example:
+%   plot_local_nps_region_vals(NPS_region_vals)
 
+% Get input data
+DATA_STRUCT = nps_region_extract;
 
+% Create empty plot 
 create_figure(DATA_STRUCT.region, 1, 2);
 
+% Get condition data and specify options to be plotted
 mydata = DATA_STRUCT.condition_data;
-input_options = {'colors', DATA_STRUCT.colors, 'nofig', 'names', DATA_STRUCT.conditions, 'noviolin', 'noind'};
+input_options = {'colors', DATA_STRUCT.colors, 'nofig', 'names', DATA_STRUCT.conditions, 'noind'};
 
+% Plot condition data
 barplot_columns(mydata, input_options{:});
 
+% Populate labels for conditions plot
 title('Conditions');
 ylabel(sprintf('%s local pattern response', DATA_STRUCT.region));
+xlabel(sprintf('Condition'));
 
 subplot(1, 2, 2);
 
+% Get contrast data and specify options for plotting
 mydata = DATA_STRUCT.contrast_data;
-input_options = {'colors', DATA_STRUCT.contrastcolors, 'nofig', 'names', DATA_STRUCT.contrastnames,'noviolin', 'noind'};
+input_options = {'colors', DATA_STRUCT.contrastcolors, 'nofig', 'names', DATA_STRUCT.contrastnames, 'noind'};
 
+% Plot contrast data
 barplot_columns(mydata, input_options{:});
 
+% Populate labels for contrasts plot
 title('Contrasts');
 ylabel(sprintf('%s local pattern response', DATA_STRUCT.region));
+xlabel(sprintf('Contrast'));
+
+end
 
 % save as SVG

@@ -19,7 +19,7 @@ function NPS_region_vals = extract_local_nps_region_vals(fmri_data_object, my_re
 % :Usage:
 % ::
 %
-%     [NPS_region_vals] = extract_local_nps_region_vals(fmri_data_object, nps_region_of_interest)
+%     NPS_region_vals = extract_local_nps_region_vals(fmri_data_object, nps_region_of_interest)
 %
 %
 % :Inputs:

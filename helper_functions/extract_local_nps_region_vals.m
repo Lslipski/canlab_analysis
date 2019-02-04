@@ -68,12 +68,12 @@ in_DAT = fmri_data_object;
 if sum(strcmp(in_DAT.NPSsubregions.posnames, region)) == 1
     pos_or_neg_field = 'npspos_by_region';  % set flag field to positive
     wh_region = strcmp(in_DAT.NPSsubregions.posnames, region);  % find index of input region
-    fprintf('Input region is an NPS Pos region.')
+    sprintf('Input region %s is an NPS Pos region.', region)
     
 elseif sum(strcmp(in_DAT.NPSsubregions.negnames, region)) == 1
     pos_or_neg_field = 'npsneg_by_region';  % set flag field to negative
     wh_region = strcmp(in_DAT.NPSsubregions.negnames, region);  % find index of input region
-    fprintf('Input region is an NPS Neg region.')
+    sprintf('Input region %s is an NPS Neg region.', region)
     
 else
     error('Bad Region Name')

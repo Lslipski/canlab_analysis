@@ -1,4 +1,4 @@
-function plot_local_nps_region_vals(nps_region_extract)
+function plot_local_nps_region_vals(nps_region_extract, save_dir)
 %% Helper function to visualize local NPS region values from nps region extract (can be created by extract_local_nps_region_vals.m).
 
 %
@@ -38,7 +38,7 @@ function plot_local_nps_region_vals(nps_region_extract)
 DATA_STRUCT = nps_region_extract;
 
 % Create empty plot 
-create_figure(DATA_STRUCT.region, 1, 2);
+f1 = create_figure(DATA_STRUCT.region, 1, 2);
 
 % Get condition data and specify options to be plotted
 mydata = DATA_STRUCT.condition_data;
@@ -66,6 +66,7 @@ title('Contrasts');
 ylabel(sprintf('%s local pattern response', DATA_STRUCT.region));
 xlabel(sprintf('Contrast'));
 
+%save output as Support vector graphics file image (SVG)
+print(f1, [save_dir '/' DATA_STRUCT.region '_condition_contrast_violin_plot'] , '-dsvg');
+clear f1;
 end
-
-% save as SVG

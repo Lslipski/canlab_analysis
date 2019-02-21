@@ -79,7 +79,7 @@ subplot(1, 2, 2);
 
 % Get contrast data and specify options for plotting
 mydata = DATA_STRUCT.contrast_data;
-input_options = {'colors', DATA_STRUCT.contrastcolors, 'nofig', 'names', DATA_STRUCT.contrastnames, 'noind'};
+input_options = {'colors', DATA_STRUCT.contrastcolors, 'nofig', 'names', DATA_STRUCT.contrastnames, 'noviolin', 'noind'};
 
 % Plot contrast data
 barplot_columns(mydata, input_options{:});

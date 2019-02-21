@@ -19,10 +19,10 @@ function NPS_region_vals = plugin_extract_local_nps_region_vals(second_level_DAT
 % :Usage:
 % ::
 %     **NOTE**: This script and it's counterpart,
-%     plot_local_nps_region_vals.m, ONLY pertain to the CANlab 2nd level
+%     plugin_plot_local_nps_region_vals.m, ONLY pertain to the CANlab 2nd level
 %     script system. They are not for general use. The input data object
 %     for this script is a DAT object, which is specific to the 2nd level
-%     script system, and general data objects may not work as intended with
+%     script system, and other data objects may not work as intended with
 %     this function. 
 %
 %
@@ -65,22 +65,22 @@ function NPS_region_vals = plugin_extract_local_nps_region_vals(second_level_DAT
 %        G.) contrast_colors: Colors pulled from input fmri_data_object for
 %        plotting by contrasts
 % :Examples:
-%  NPS_region_vals = extract_local_nps_region_vals(DAT, 'dACC') %saves dACC
+%  (1) NPS_region_vals = extract_local_nps_region_vals(DAT, 'dACC') %saves dACC
 %  values to new variable NPS_region_vals
 %
-% To load in a second-level analysis session, extract an NPS subregion, and
-% then plot it by condition/contrast:
+%   (2)To load in a CANlab second-level analysis session, extract an NPS subregion, and
+%   then plot it by condition/contrast:
 %
-% %reload second level analysis objects
-% addpath(genpath('/home/lukie/Documents/CANlab/breathlessness'));
-% a_set_up_paths_always_run_first;
-% b_reload_saved_matfiles
+%   %reload second level analysis objects
+%   addpath(genpath('/path/to/data/files'));
+%   a_set_up_paths_always_run_first;
+%   b_reload_saved_matfiles
 %
-% %Example to extract dACC from DAT
-% NPS_local_dACC = extract_local_nps_region_vals(DAT, 'dACC')
+%   %Example to extract dACC from DAT
+%   NPS_local_dACC = extract_local_nps_region_vals(DAT, 'dACC')
 %
-% %Example to plot newly extrated dACC object
-% plot_local_nps_region_vals(NPS_local_dACC)
+%   %Example to plot newly extrated dACC object
+%   plot_local_nps_region_vals(NPS_local_dACC)
 
 
 
